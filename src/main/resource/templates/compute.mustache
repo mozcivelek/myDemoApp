@@ -1,11 +1,21 @@
-
 <title>My application deployed automatically</title>
   <h1>Hello, World!</h1>
-    Result is {{result}}
+    <br>This algorithm takes one array from first text box and another
+    <br>array from second box and appends them one after another.
+    <br>The integer from third box is searched after that.
+    <br>If the appended array contains it, Result is True
+    <br>else it's False.
+    <br>
+    <br>Result is {{result}}
+
+
   <form action="compute" method="post">
-        <textarea name="input1" rows="10" cols="30"></textarea>
-        <textarea name="input2" rows="10" cols="30"></textarea>
+        <textarea name="input1" rows="10" cols="30">
+        </textarea>
+        <textarea name="input2" rows="10" cols="30">
+        </textarea>
+	<textarea name="input3" rows="10" cols="30">
+        </textarea>
         <br>
         <input type="submit">
-  </form>
-
+</form>

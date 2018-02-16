@@ -1,11 +1,9 @@
 package com.mycompany.app;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import java.util.*;
 
 /**
  * Unit test for simple App.
@@ -18,23 +16,49 @@ public class AppTest
      *
      * @param testName name of the test case
      */
-	   public void testFound() {
-		      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-		      assertTrue(new App().search(array, 4));
-		    }
+    public AppTest( String testName )
+    {
+        super( testName );
+    }
 
-		    public void testNotFound() {
-		      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-		      assertFalse(new App().search(array, 5));
-		    }
+    /**
+     * @return the suite of tests being tested
+     */
+    public static Test suite()
+    {
+        return new TestSuite( AppTest.class );
+    }
 
-		    public void testEmptyArray() {
-		      ArrayList<Integer> array = new ArrayList<>();
-		      assertFalse(new App().search(array, 1));
-		    }
+    /**
+     * Rigourous Test :-)
+     */
+    public void testApp()
+    {
+        assertTrue( true );
+    }
+    public void testFound() {
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      assertTrue(new App().append_search(array,array2, 4));
+    }
 
-		    public void testNull() {
-		      assertFalse(new App().search(null, 1));
-		    }
+    public void testNotFound() {
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      assertFalse(new App().append_search(array,array2, 5));
+    }
 
+    public void testNull() {
+      assertFalse(new App().append_search(null,null, 1));
+    }
+    public void testWithOneArray() {
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      assertTrue(new App().append_search(null, array, 2));
+    }
+    public void testNegativeNumber() {
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4,-5));
+      assertFalse(new App().append_search(array,array2,-3));
+      assertTrue(new App().append_search(array,array2,-5));
+   }
 }
